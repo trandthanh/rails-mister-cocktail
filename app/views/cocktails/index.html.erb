@@ -1,0 +1,31 @@
+<div class="home-banner"></div>
+
+
+<div class="cocktail-title text-center">
+  <h3>What's your flavor?</h2>
+  <p>Check our cocktails out.</p>
+</div>
+
+
+
+
+<div class="cocktail-list">
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="card" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/random/800x200');">
+              <div class="card-description">
+                <%= cocktail.name %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<p><%= link_to 'New cocktail', new_cocktail_path %></p>
