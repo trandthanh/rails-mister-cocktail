@@ -27,6 +27,7 @@
 
 <div class="cocktail-list">
   <div class="container">
+    <h1 class="text-center">What's your flavor?</h1>
     <div class="row">
       <% @cocktails.each do |cocktail| %>
         <%= link_to cocktail_path(cocktail) do %>
@@ -34,7 +35,7 @@
             <% if cocktail.photo.file.nil? %>
               <div class="card"></div>
             <% else %>
-              <div class="card" style="background: url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+              <div class="card" style="background: url('<%= cl_image_path cocktail.photo, height: 200, width: 300, crop: :fill %>')">
                 <div class="card-description">
                   <%= cocktail.name %>
                 </div>
@@ -47,5 +48,3 @@
   </div>
 </div>
 
-
-<p><%= link_to 'New cocktail', new_cocktail_path %></p>
