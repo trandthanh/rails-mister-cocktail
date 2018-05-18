@@ -1,8 +1,12 @@
 .home-banner {
-  background-image: asset-url('banner.jpg');
-  background-size: cover;
-  height: 100vh;
-  color: #eee;
+  background-image: asset-url('banner.jpeg');
+  color: white;
   text-align: center;
-  padding-top: 40vh;
+  height: 70vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
