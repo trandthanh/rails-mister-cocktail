@@ -1,10 +1,25 @@
 <div class="home-banner">
+  <div class="video-background">
+    <div class="video-foreground">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sgUmyENMVoQ?rel=0&amp;controls=0&amp;showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=sgUmyENMVoQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div id="vidtop-content">
+    <div class="vid-info">
+      <h1>There's a cocktail for every occasion.</h1>
+      <p>Let's celebrate.</p>
+    </div>
+  </div>
 </div>
 
-
-<div class="cocktail-title text-center">
-  <h3>What's your flavor?</h2>
-  <p>Check our cocktails out.</p>
+<div class="wrapper cocktail-card">
+  <div class="cocktail-title text-center">
+    <%= image_tag "glass1.png", class: "drink" %>
+    <%= image_tag "glass2.png", class: "drink" %>
+    <%= image_tag "glass3.png", class: "drink" %>
+    <%= image_tag "glass4.png", class: "drink" %>
+  </div>
 </div>
 
 
@@ -16,11 +31,15 @@
       <% @cocktails.each do |cocktail| %>
         <%= link_to cocktail_path(cocktail) do %>
           <div class="col-xs-12 col-md-6 col-lg-4">
-            <div class="card" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>');">
-              <div class="card-description">
-                <%= cocktail.name %>
+            <% if cocktail.photo.file.nil? %>
+              <div class="card"></div>
+            <% else %>
+              <div class="card" style="background: url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+                <div class="card-description">
+                  <%= cocktail.name %>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
         <% end %>
       <% end %>
